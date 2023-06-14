@@ -1,16 +1,10 @@
 import { useEffect, useState } from "react";
-import { GameProps } from "../types/questionInterface";
-import styles from "./Game.module.css";
+import { DisplayGameProps } from "../types/Types";
+import s from "../modules/Game.module.scss";
 
-export const Game = (props: GameProps) => {
+export const Game = (props: DisplayGameProps) => {
   const [answers, setAnswers] = useState<Array<string | Array<string>>>([]);
-  const {
-    questions,
-    step,
-    setStep,
-    selectedCorrectAnswer,
-    setSelectedCorrectAnswer,
-  } = props;
+  const { questions, step, setStep, setSelectedCorrectAnswer } = props;
   const currentQuestion = questions[step];
 
   function shuffleArray(answers: Array<string | Array<string>>) {
@@ -34,12 +28,12 @@ export const Game = (props: GameProps) => {
   }, [currentQuestion]);
 
   return (
-    <div className={styles.game}>
-      <h1 className={styles.text}>{currentQuestion.question.text}</h1>
-      <ul className={styles.list}>
+    <div className={s.game}>
+      <h1 className={s.text}>{currentQuestion.question.text}</h1>
+      <ul className={s.list}>
         {answers.map((answer, index) => (
           <li
-            className={styles.variants}
+            className={s.variants}
             onClick={() => {
               onSelectCorrectAnswer(answer);
               setStep(step + 1);
@@ -50,7 +44,7 @@ export const Game = (props: GameProps) => {
           </li>
         ))}
       </ul>
-      <div className={styles.page}>
+      <div className={s.page}>
         {step + 1}/{questions.length}
       </div>
     </div>
