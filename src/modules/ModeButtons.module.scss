@@ -7,14 +7,24 @@
     font-size: 2rem;
     width: 150px;
     padding: 10px 10px;
-    border: none;
+    border: 2px solid white;
     border-radius: 6px;
+    color: white;
+    background-color: transparent;
     cursor: pointer;
     &:hover {
-      transform: translateY(-2px);
+      cursor: pointer;
+      transition-duration: 0.2s;
+      box-shadow: inset 0 0 35px 5px rgba(0, 0, 0, 0.25),
+        inset 0 2px 1px 1px rgba(255, 255, 255, 0.9),
+        inset 0 -2px 1px rgba(0, 0, 0, 0.25);
+      transform: scale(1.09);
+      background-color: wheat;
+      color: #1b2735;
     }
     &:active {
-      transform: translateY(0);
+      transition-duration: 0.1s;
+      transform: scale(0.98);
     }
   }
 }

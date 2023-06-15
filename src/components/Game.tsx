@@ -28,7 +28,7 @@ export const Game = (props: DisplayGameProps) => {
   }, [currentQuestion]);
 
   return (
-    <div className={s.game}>
+    <div className={s.box}>
       <h1 className={s.text}>{currentQuestion.question.text}</h1>
       <ul className={s.list}>
         {answers.map((answer, index) => (
